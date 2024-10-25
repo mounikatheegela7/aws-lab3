@@ -9,15 +9,15 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t mounika-websiteforecs:1 .
-      - docker tag mounika-websiteforecs:1 864899837235.dkr.ecr.ap-south-1.amazonaws.com/mounika/repo:1
+      - docker build -t mounika-websiteforecs:2 .
+      - docker tag mounika-websiteforecs:2 864899837235.dkr.ecr.ap-south-1.amazonaws.com/mounika/repo:2
 
   post_build:
     commands:
       - echo Pushing the Docker image to ECR...
-      - docker push 864899837235.dkr.ecr.ap-south-1.amazonaws.com/mounika/repo:1
+      - docker push 864899837235.dkr.ecr.ap-south-1.amazonaws.com/mounika/repo:2
       - echo Writing image definitions file...
-      - printf '[{"name":"mounikaecscontainer","imageUri":"%s"}]' 864899837235.dkr.ecr.ap-south-1.amazonaws.com/mounika/repo:1 > imagedefinitions.json
+      - printf '[{"name":"mounikaecscontainer","imageUri":"%s"}]' 864899837235.dkr.ecr.ap-south-1.amazonaws.com/mounika/repo:2 > imagedefinitions.json
 
 artifacts:
   files: imagedefinitions.json
