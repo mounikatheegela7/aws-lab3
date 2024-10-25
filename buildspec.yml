@@ -9,7 +9,7 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t mounika-websiteforecs:1.
+      - docker build -t mounika-websiteforecs:1 .
       - docker tag mounika-websiteforecs:1 864899837235.dkr.ecr.ap-south-1.amazonaws.com/mounika/repo:1
 
   post_build:
